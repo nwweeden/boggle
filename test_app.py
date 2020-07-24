@@ -24,6 +24,10 @@ class BoggleAppTestCase(TestCase):
 
         with self.client as client:
             response = client.get('/')
+            html = response.get_data(as_text=True)
             self.assertIn(SESS_BOARD_UUID_KEY, session)
 
-            self.assertFalse("Write expectations here!")
+            self.assertEqual(response.status_code, 200)
+            self.assertIn("<tr>", html)
+
+

@@ -10,9 +10,21 @@
 <main>
   <table class="board">
   <!-- fill in -->
+  {% for row in board %}
+    <tr>
+      {% for letter in row %}
+        <td>letter</td>
+      {% endfor %}
+    </tr>
+  {% endfor %}
   </table>
 
   <!-- form here -->
+  <form action="">
+    <p>Enter a word</p>
+    <input type="text">
+    <button type="submit">Go</button>
+  </form>
 </main>
 
 <p class="msg">
