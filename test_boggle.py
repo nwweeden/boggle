@@ -13,8 +13,8 @@ class BoggleWordListTestCase(TestCase):
         word_list = BoggleWordList()
 
         
-        self.assertEquals(len(word_list.words) == 0, False)
-        self.assertEquals(word_list.check_word('PUREE'), True)
+        self.assertTrue(word_list.words)
+        self.assertTrue(word_list.check_word('PUREE'))
 
 
 class BoggleBoardTestCase(TestCase):
