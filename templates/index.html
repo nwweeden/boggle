@@ -13,16 +13,16 @@
   {% for row in board %}
     <tr>
       {% for letter in row %}
-        <td>letter</td>
+        <td>{{letter}}</td>
       {% endfor %}
     </tr>
   {% endfor %}
   </table>
 
   <!-- form here -->
-  <form action="">
+  <form action="/api/score-word" method='POST'>
     <p>Enter a word</p>
-    <input type="text">
+    <input type="text" name="submit_word">
     <button type="submit">Go</button>
   </form>
 </main>
