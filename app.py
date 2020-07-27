@@ -38,16 +38,20 @@ def homepage():
 @app.route('/api/score-word', methods=['POST'])
 def validate_word():
     # breakpoint()
+    print("*starting validate_word", request.json)
     current_word = request.json['submit_word'] #what is a JSON bdoy??
+    print("43")
     board = boards[session[SESS_BOARD_UUID_KEY]]
 
+    print("before checked stuff")
     check_word = word_list.check_word(current_word)
     check_on_board = board.check_word_on_board(current_word)
+    print("checked stuff")
 
     if not check_word: 
         return jsonify({'result': "not-word"})
     if not check_on_board:
         return jsonify({'result': "not-on-board"})
     else:
-        return jsonify({'result': "ok", 'word': f"{current_word}"})
+        return jsonify({'result': "ok", 'word': f"[{current_word}]"})
 
